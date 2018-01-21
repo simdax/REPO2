@@ -1,14 +1,13 @@
 NAME := libftprintf.a
 SRCS := itoas.c parse.c print.c ft_printf.c parser.c utils_printf.c
-LIBFT_SRCS := libft/libft.a
+LIBFT_OBJS := $(addprefix libft/, ft_atoi.o ft_nbrsize.o ft_putchar.o ft_putstr.o ft_strany.o ft_strchr.o ft_strequ.o ft_strlen.o ft_strsub.o ft_isdigit.o ft_issep.o)
 OBJS := $(SRCS:.c=.o)
 INC := $(addprefix -I, libft includes)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	make -C libft
-	@ar cr $(NAME) $(OBJS) $(LIBFT_SRCS)
+	@ar cr $(NAME) $(OBJS) $(LIBFT_OBJS)
 	@ranlib $(NAME)
 
 %.o : %.c
