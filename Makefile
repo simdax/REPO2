@@ -5,6 +5,7 @@ OBJS := $(SRCS:.c=.o)
 INC := $(addprefix -I, libft includes)
 
 all: $(NAME)
+	 @make -C libft
 
 $(NAME): $(OBJS)
 	@ar cr $(NAME) $(OBJS) $(LIBFT_OBJS)
