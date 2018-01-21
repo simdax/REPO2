@@ -7,6 +7,7 @@ INC := $(addprefix -I, libft includes)
 all: $(NAME)
 
 $(NAME): $(OBJS)
+	@make -C libft
 	@ar cr $(NAME) $(OBJS) $(LIBFT_OBJS)
 	@ranlib $(NAME)
 
